@@ -136,9 +136,6 @@ public class NumberTriangle {
 
         // TODO define any variables that you want to use to store things
 
-
-        // will need to return the top of the NumberTriangle,
-        // so might want a variable for that.
         NumberTriangle top = null;
         List<NumberTriangle> prevRow = new ArrayList<>();
         String line = br.readLine();
@@ -150,7 +147,9 @@ public class NumberTriangle {
                 for(String p : parts){
                     currRow.add(new NumberTriangle(Integer.parseInt(p)));
                 }
-                if (top == null)top = currRow.get(0);
+                if (top == null){
+                    top = currRow.get(0);
+                }
                 for(int i =0; i < prevRow.size(); i++){
                     NumberTriangle parent = prevRow.get(i);
                     parent.setLeft(currRow.get(i));
@@ -158,8 +157,6 @@ public class NumberTriangle {
                 }
                 prevRow = currRow;
             }
-            // remove when done; this line is included so running starter code prints the contents of the file
-            // System.out.println(line);
 
             // TODO process the line
 
